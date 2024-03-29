@@ -1,0 +1,9 @@
+<img src= "{{url_for('static', filename='/fig/step1.png')}}" ><br>
+<img src= "{{url_for('static', filename='/fig/step2.png')}}" ><br>
+
+<section>
+    <pre>{{ sudoku_grid|safe }}</pre>
+</section>
+<section>
+    <pre>{{ solved_puzzle|safe }}</pre>
+</section>
