@@ -8,6 +8,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+# TODO: Implement SSE, capture stdout and pipe it to the page
+
 @app.route('/upload', methods=['POST'])
 def upload():
     file = request.files['file']
@@ -19,11 +21,6 @@ def upload():
         sudoku_grid = solve.genCells(),
         solved_puzzle = solve.solve()
     )
-
-@app.route('/result')
-def result():
-    # Simulated result
-    return jsonify({'result': 'Result of processing the uploaded file'})
 
 if __name__ == '__main__':
     app.run(debug=True)

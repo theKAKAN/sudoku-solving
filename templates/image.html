@@ -1,9 +1,37 @@
-<img src= "{{url_for('static', filename='/fig/step1.png')}}" ><br>
-<img src= "{{url_for('static', filename='/fig/step2.png')}}" ><br>
+<small>Click on the headings to open them!</small>
 
-<section>
-    <pre>{{ sudoku_grid|safe }}</pre>
-</section>
-<section>
-    <pre>{{ solved_puzzle|safe }}</pre>
-</section>
+<hr>
+
+<details open>
+    <summary>Image #1 - Finding the largest contour</summary>
+    <img src= "{{url_for('static', filename='/fig/step1.png')}}" >
+</details>
+
+<hr>
+
+<details>
+    <summary>Image #2 - Resizing to only have the sudoku puzzle</summary>
+    <img src= "{{url_for('static', filename='/fig/step2.png')}}" >
+</details>
+
+<hr>
+
+<details>
+    <summary>Processed Sudoku Grid</summary>
+    <section>
+        <pre>
+            <code>{{ sudoku_grid|safe }}</code>
+        </pre>
+    </section>
+</details>
+
+<hr>
+
+<details>
+    <summary>Solved Sudoku Grid</summary>
+    <section>
+        <pre>
+            <code>{{ solved_puzzle|safe }}</code>
+        </pre>
+    </section>
+</details>

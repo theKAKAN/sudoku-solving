@@ -78,7 +78,7 @@ def printPuzzle(quiz):
                 result += "| "
 
             if col == 8:
-                result += str(quiz[row][col]) + " <br> "
+                result += str(quiz[row][col]) + " <br>"
             else:
                 result += str(quiz[row][col]) + " "
     return result
@@ -166,4 +166,5 @@ class Solver:
     
     @staticmethod
     def getModelSummary():
+        # TODO: this prints to stdout, capture it and show it online
         return Solver.model.summary()
