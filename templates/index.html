@@ -9,34 +9,27 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/pico.classless.css')}}" />
 </head>
 <body>
-    <script>
-        function updateProgress(value){
-            htmx.find('#progress').setAttribute('value', value);
-            if( value <= 95 )
-                setTimeout( updateProgress, 100, value+1 )
-        }
-    </script>
     <header>
         <h1>Sudoku Solver</h1>
     </header>
     <main>
         <form 
-            id="form" 
             hx-post="/upload" 
             hx-target="#result" 
             hx-trigger="submit" 
+            hx-indicator="#indicator" 
             enctype="multipart/form-data"
         >
-            <label for="file">Select a file:</label>
-            <input type="file" id="file" name="file" required>
-            <button 
-                id="submit"
-                type="submit" 
-                hx-on:click="setTimeout( updateProgress, 100, 0 );" >
-                Upload
-            </button>
-            <progress id='progress' value='0' max='100'></progress>
+            <fieldset role="group">
+                <label for="file">Select a file:</label>
+                <input type="file" id="file" name="file" required>
+                <button type="submit">Upload</button>
+            </fieldset>
         </form>
+        <div id="indicator" class="htmx-indicator">
+            <span aria-busy="true">Loading your data</span>
+            <progress></progress>
+        </div>
         <section id="result"></div>
     </main>
     <footer>
